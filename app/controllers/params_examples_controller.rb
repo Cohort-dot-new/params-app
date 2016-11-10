@@ -13,4 +13,17 @@ class ParamsExamplesController < ApplicationController
     end
     render 'name.html.erb'
   end
+
+  def guessing_game_method
+    winning_number = 32
+    @guess = params["the_users_guess"].to_i
+    if @guess > winning_number
+      @message = "Pick lower!"
+    elsif @guess < winning_number
+      @message = "Pick higher!"
+    else
+      @message = "You win!"
+    end
+    render 'guess.html.erb'
+  end
 end
