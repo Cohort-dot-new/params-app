@@ -10,6 +10,15 @@ class ParamsExamplesController < ApplicationController
     render 'url_segment_params.html.erb'
   end
 
+  def form_params_method
+    render 'form.html.erb'
+  end
+
+  def form_result_method
+    @value = params["form_message"]
+    render 'form_result.html.erb'
+  end
+
   def whatever_name_method
     @name = params["query_name"]
     @message = ""
