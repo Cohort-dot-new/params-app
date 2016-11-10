@@ -5,6 +5,11 @@ class ParamsExamplesController < ApplicationController
     render 'query_params.html.erb'
   end
 
+  def url_segment_params_method
+    @value = params["this_is_a_variable"]
+    render 'url_segment_params.html.erb'
+  end
+
   def whatever_name_method
     @name = params["query_name"]
     @message = ""
