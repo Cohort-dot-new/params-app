@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   get '/name_url' => 'params_examples#whatever_name_method'
   get '/guessing_game_url' => 'params_examples#guessing_game_method'
+
+  get '/guessing_form_url' => 'params_examples#guessing_form_method'
+  post '/guessing_form_result_url' => 'params_examples#guessing_form_result_method'
 end

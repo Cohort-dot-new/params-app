@@ -40,4 +40,21 @@ class ParamsExamplesController < ApplicationController
     end
     render 'guess.html.erb'
   end
+
+  def guessing_form_method
+    render 'guessing_form.html.erb'
+  end
+
+  def guessing_form_result_method
+    winning_number = 32
+    @guess = params["input_number"].to_i
+    if @guess > winning_number
+      @message = "Pick lower!"
+    elsif @guess < winning_number
+      @message = "Pick higher!"
+    else
+      @message = "You win!"
+    end
+    render 'guessing_form_result.html.erb'
+  end
 end
