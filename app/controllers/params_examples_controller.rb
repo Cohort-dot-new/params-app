@@ -1,4 +1,6 @@
 class ParamsExamplesController < ApplicationController
+  @@winning_number = rand(1..100)
+
   def query_params_method
     @message = params["my_message"]
     @message2 = params["another_message"]
@@ -46,14 +48,14 @@ class ParamsExamplesController < ApplicationController
   end
 
   def guessing_form_result_method
-    winning_number = 32
     @guess = params["input_number"].to_i
-    if @guess > winning_number
+    if @guess > @@winning_number
       @message = "Pick lower!"
-    elsif @guess < winning_number
+    elsif @guess < @@winning_number
       @message = "Pick higher!"
     else
       @message = "You win!"
+      @@winning_number = rand(1..100)
     end
     render 'guessing_form_result.html.erb'
   end
